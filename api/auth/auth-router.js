@@ -12,7 +12,6 @@ const {
 } = require('./auth-middleware')
 
 const { tokenBuilder } = require('./auth-helpers')
-const { JWT_SECRET } = require("../secrets");
 
 router.post('/register', checkValidBody, checkUsernameFree, (req, res, next) => {
   console.log("AUTH-ROUTER: [POST] /REGISTER")
