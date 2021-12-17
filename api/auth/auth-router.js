@@ -8,14 +8,13 @@ const BCRYPT_ROUNDS = 3
 const {
   checkUsernameFree,
   checkUsernameExists,
-  checkPasswordLength,
   checkValidBody
 } = require('./auth-middleware')
 
 const { tokenBuilder } = require('./auth-helpers')
 const { JWT_SECRET } = require("../secrets");
 
-router.post('/register', checkValidBody, checkUsernameFree, checkPasswordLength, (req, res, next) => {
+router.post('/register', checkValidBody, checkUsernameFree, (req, res, next) => {
   console.log("AUTH-ROUTER: [POST] /REGISTER")
   let newUser = req.body
   newUser.password = bcrypt.hashSync(newUser.password, BCRYPT_ROUNDS)
