@@ -1,7 +1,13 @@
 const router = require('express').Router();
+const bcrypt = require('bcryptjs')
+
+const Users = require('../users/users-model')
 
 router.post('/register', (req, res) => {
   res.end('implement register, please!');
+
+
+
   /*
     IMPLEMENT
     You are welcome to build additional middlewares to help with the endpoint's functionality.
@@ -55,5 +61,6 @@ router.post('/login', (req, res) => {
       the response body should include a string exactly as follows: "invalid credentials".
   */
 });
+
 
 module.exports = router;
